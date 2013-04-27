@@ -1,0 +1,152 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<title>Lose 'em All - Mao - A Uno like Card Game</title>
+
+	<script src="../js-lib/angular-1.1.4/angular.min.js"></script>
+
+	<script src="../js/card.game.js"></script>
+	<script src="../js/card.game.uno.js"></script>
+
+	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="../css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
+
+	<link href="../css/game.css" rel="stylesheet" type="text/css">
+	<link href="../css/card.game.css" rel="stylesheet" type="text/css">
+	<link href="../css/card.game.uno.css" rel="stylesheet" type="text/css">
+	
+</head>
+<body>
+<div id="wrapper" ng-cloak class="ng-cloak">
+	<div ng-controller="GameController">
+	 <div class="container-fluid" style="background-image: url('{{gameAreaBkg}}')">	
+		<div class="row-fluid" style="width: 100%; height: 100px; text-align: center">
+			<div style="float: center; margin-top: 20px;">
+				<button ng-repeat="handCard in gamePlayers[2].handCards" 
+					class="card {{handCard.cardSuit.color}} handCardReadOnly" 
+					title="{{handCard.fullString}}" ng-show="cardGame.gameStatus == 'gameWon'" ng-disabled="true"
+					ng-bind-html-unsafe="handCard"></button>
+				<span class="handPoints" ng-show="debug || cardGame.gameStatus == 'gameWon'">&nbsp;&oplus;{{gamePlayers[2].handPoints}}&nbsp;</span>
+				<span class="uno" ng-show="cardGame.gameStatus != 'gameWon' && gamePlayers[2].handCards.length == 1">Mao!</span>
+				<span class="cpuHandCardsDebug"  ng-repeat="handCard in gamePlayers[2].handCards" ng-bind-html-unsafe="handCard" ng-show="debug && cardGame.gameStatus != 'gameWon'"></span>
+				<span class="playerName playerNameN">&nbsp;{{gamePlayers[2].totalPoints}}&nbsp;</span>
+				<div class="winner" ng-show="cardGame.gameStatus == 'gameWon' && gamePlayers[2].handCards.length == 0">WINNER!</div>
+			</div>
+		</div>
+		<div class="row-fluid" style="width: 100%; height: 550px; text-align: center">
+			<table width="100%" height="550" border="0" summary="layout">
+				<tr height="350">
+					<td width="15%" align="left">
+						<div style="float: left; margin-top: 10px; margin-bottom: auto;">
+							<button ng-repeat="handCard in gamePlayers[1].handCards" 
+								class="card {{handCard.cardSuit.color}} handCardReadOnly" 
+								title="{{handCard.fullString}}" ng-show="cardGame.gameStatus == 'gameWon'" ng-disabled="true"
+								ng-bind-html-unsafe="handCard"></button>
+
+							<br><span class="handPoints" ng-show="debug || cardGame.gameStatus == 'gameWon'">&nbsp;&oplus;{{gamePlayers[1].handPoints}}&nbsp;</span>
+							<br><span class="uno" ng-show="cardGame.gameStatus != 'gameWon' && gamePlayers[1].handCards.length == 1">Mao!</span>
+							<br><span class="cpuHandCardsDebug"  ng-repeat="handCard in gamePlayers[1].handCards" ng-bind-html-unsafe="handCard"  ng-show="debug && cardGame.gameStatus != 'gameWon'"></span>
+							<br><span class="playerName">&nbsp;{{gamePlayers[1].totalPoints}}&nbsp;</span>
+							<br><div class="winner" ng-show="cardGame.gameStatus == 'gameWon' && gamePlayers[1].handCards.length == 0">WINNER!</div>
+						</div>
+					</td>
+					<td width="70%" valign="top" align="center">
+						<div class="basket" id="basketCardsHolder">
+							<div ng-repeat="basketCard in cardGame.basketOfCards" 
+								class="{{basketCard.styleClassPos}}"
+								ng-animate="{enter: 'basketcardanimate-enter'}">
+									<button
+										ng-bind-html-unsafe="basketCard" 
+										ng-click="raiseGameEvent({name: 'repick', card: basketCard})" 
+										class="card {{basketCard.cardSuit.color}} basketCard"
+										title="{{basketCard.fullString}}">
+									</button>
+							</div>
+							<div class="cardPosC" ng-show="gameRound.switchedSuit != null" ng-animate=" 'gamefast-animate' ">
+								<button class="suit {{gameRound.switchedSuit.color}} runningSuit" ng-bind-html-unsafe="gameRound.switchedSuit"></button>
+							</div>
+							<div class="cardPosDeck" ng-show="gameRound.awaitingDraw"  ng-animate="{ show: 'gamefast-animate-show'} ">
+								<button class="eventDraw" ng-bind-html-unsafe="gameViewProperties.arrowTowardsPrevPlayer[gameRound.playerIndex]"></button>
+							</div>
+							<div class="cardPosSkip" ng-show="gameRound.awaitingSkip"  ng-animate="{ show: 'gamesuperfast-animate-show', hide: 'gamefast-animate-hide'} ">
+								<button class="eventSkip" ng-bind-html-unsafe="'&Theta;'"></button>
+							</div>
+						</div>
+					</td>
+					<td width="15%" align="right">
+						<div style="float: right; margin-top: 10px; margin-bottom: auto;">
+							<button ng-repeat="handCard in gamePlayers[3].handCards" 
+								class="card {{handCard.cardSuit.color}} handCardReadOnly" 
+								title="{{handCard.fullString}}" ng-show="cardGame.gameStatus == 'gameWon'" ng-disabled="true"
+								ng-bind-html-unsafe="handCard"></button>
+							<p>
+							<br><span class="handPoints" ng-show="debug || cardGame.gameStatus == 'gameWon'">&nbsp;&oplus;{{gamePlayers[3].handPoints}}&nbsp;</span>
+							<br><span class="uno" ng-show="cardGame.gameStatus != 'gameWon' && gamePlayers[3].handCards.length == 1"  ng-animate=" 'gamefast-animate' ">Mao!</span>
+							<br><span class="cpuHandCardsDebug"  ng-repeat="handCard in gamePlayers[3].handCards" ng-bind-html-unsafe="handCard"  ng-show="debug && cardGame.gameStatus != 'gameWon'"></span>
+							<br><span class="playerName">&nbsp;{{gamePlayers[3].totalPoints}}&nbsp;</span>
+							<br><div class="winner" ng-show="cardGame.gameStatus == 'gameWon' && gamePlayers[3].handCards.length == 0" ng-animate=" 'gamefast-animate' ">WINNER!</div>
+						</div>
+
+					</td>
+				</tr>
+				<tr height="200">
+					<td> </td>
+					<td align="center">
+						
+						<button autofocus class="startBtn" ng-click="handleGameEvent({name: 'deal'})" ng-show="cardGame.gameStatus == 'started'" 
+							ng-animate="{hide: 'gamebtn-animate-hide'}">Hi Droids!  &rArr;</button>
+						<button class="newBtn" ng-click="newGame()" ng-show="cardGame.gameStatus == 'gameWon'" 
+							ng-animate="{show: 'gameslow-animate-show', hide: 'gameultrafast-animate-hide'}">Next Game &rArr;</button>
+						
+						<button class="drawBtn" 
+							ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && !gameRound.canSwitchSuit && !gameRound.blockerCardThrown && gameRound.hasSinglePossibleAction && !gameRound.attackerCardThrown"
+							ng-click="raiseGameEvent({name: 'draw'})" ng-animate=" 'gamefast-animate' ">Must Draw &darr;</button>
+						<button class="drawBtn" 
+							ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && !gameRound.canSwitchSuit && !gameRound.blockerCardThrown && !gameRound.hasSinglePossibleAction && !gameRound.attackerCardThrown"
+							ng-click="raiseGameEvent({name: 'draw'})" ng-animate=" 'gameslow-animate' ">Draw  &darr;</button>
+						<button class="drawBtn" 
+							ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && !gameRound.canSwitchSuit && !gameRound.blockerCardThrown && gameRound.hasSinglePossibleAction && gameRound.attackerCardThrown"
+							ng-click="raiseGameEvent({name: 'draw'})" ng-animate=" 'gamefast-animate' ">Must Draw {{gameRound.nCardsToDraw}} &dArr;</button>
+						<button class="drawBtn" 
+							ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && !gameRound.canSwitchSuit && !gameRound.blockerCardThrown && !gameRound.hasSinglePossibleAction && gameRound.attackerCardThrown"
+							ng-click="raiseGameEvent({name: 'draw'})" ng-animate=" 'gamefast-animate' ">Draw {{gameRound.nCardsToDraw}} &dArr;</button>
+						
+						<button class="skipBtn" ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && gameRound.blockerCardThrown && gameRound.hasSinglePossibleAction" ng-click="raiseGameEvent({name: 'skip'})" ng-animate=" 'gamefast-animate' ">Must Skip &Theta;</button>
+						<button class="skipBtn" ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && gameRound.blockerCardThrown && !gameRound.hasSinglePossibleAction" ng-click="raiseGameEvent({name: 'skip'})" ng-animate=" 'gamefast-animate' ">Skip &Theta;</button>
+						
+						<span ng-show="gameRound.canSwitchSuit">
+							<button ng-repeat="cardSuit in cardGame.cardDeckDefn.CARD_SUITS" 
+								class="suit {{cardSuit.color}}"
+								ng-click="raiseGameEvent({name: 'switch-suit', suit: cardSuit})"
+								ng-bind-html-unsafe="cardSuit"></button>
+						</span>
+						
+					</td>
+					<td>  </td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="row-fluid" style="width: 100%; height: 350px; text-align: center">
+			 <div id="handCardsHolder" style="width: 100%; height: 250px; text-align: center">
+				<button ng-repeat="handCard in gamePlayers[0].handCards"  ng-animate=" 'gamefast-animate' "
+					class="card {{handCard.cardSuit.color}} {{handCard.bgcolor}} handCardClickable" 
+					title="{{handCard.fullString}}"
+					ng-disabled="handCard.bgcolor == 'white'"
+					ng-click="raiseGameEvent({name: 'throw', card: handCard, source: this, player: gamePlayers[0]})"
+					ng-bind-html-unsafe="handCard"></button>
+				<p>
+				<span class="uno" ng-show="cardGame.gameStatus != 'gameWon' && gamePlayers[0].handCards.length == 1" ng-animate=" 'gameslow-animate' ">Mao!</span>
+				<div class="winner" ng-show="cardGame.gameStatus == 'gameWon' && gamePlayers[0].handCards.length == 0" ng-animate=" 'gameslow-animate' ">YOU WIN!</div>
+				<span class="handPoints" ng-show="cardGame.gameStatus != 'gameWon' && gamePlayers[0].handPoints != 0">&nbsp;{{gamePlayers[0].handPoints}} to shed&nbsp;</span>
+				<span class="handPoints" ng-show="cardGame.gameStatus == 'gameWon'">&nbsp;&oplus;{{gamePlayers[0].handPoints}}&nbsp;</span>
+			</div>
+		</div>
+		<div class="row-fluid" style="width: 100%; height: 100px; text-align: center">
+			<p><span  class="playerName playerNameS">&nbsp;{{gamePlayers[0].totalPoints}}&nbsp;</span>
+		</div>
+	 </div>
+	</div>
+</div> 
+</body>
+</html>

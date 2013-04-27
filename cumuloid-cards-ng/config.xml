@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+        id          = "http://cumuloid.com/game/mao"
+        version     = "1.0"
+        height      = "1000"
+        width       = "1000"
+        viewmodes   = "fullscreen">
+ 
+  <name short="Lose Them All">
+    Lose Them All - Mao - A Uno like card game
+  </name>
+
+  <feature name="http://cumuloid.com/game/mao">
+    <param name="autofocus" value="true"/>
+  </feature>
+
+  <preference name     = "widgetinstanceid"
+              value    = "jh9867oiuhdq6"
+              readonly = "true" />
+
+  <description>
+    Lose Them All - Mao - A Uno like card game
+  </description>
+
+  <author href  = "http://cumuloid.com/"
+          email = "madhupkumar@gmail.com">Cumuloid Software</author>
+
+  <icon src="icon.png"/>
+  <content src="index.html"/>
+  
+  <license>
+Copyright (c) 2013 - 2015 Cumuloid Software
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+INSULT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  </license>
+</widget>

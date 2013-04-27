@@ -1,0 +1,431 @@
+
+
+button{
+	background: #35b128;
+	border:1px solid #33842a;
+	color: green;
+	width: 150px;
+	height: 150px;
+	font-size: 4em;
+	z-index: 10;
+	
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	
+	-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+	-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+	box-shadow: 0 0 4px rgba(0,0,0, .75);
+}
+button:hover, button:focus {
+	border:4px solid #dad9d8;
+}
+button:disabled{
+	background: #cccccc;
+}
+button.eventDraw{
+	background: #22aa22;
+	color: yellow;
+	border:10px dotted #119911;
+	cursor: default;
+}
+button.eventSkip{
+	background: red;
+	border:5px solid #33842a;
+	color: yellow;
+	font-size: 7em;
+	z-index: 10;
+	
+	-moz-border-radius: 75px;
+	-webkit-border-radius: 75px;
+	border-radius: 75px;
+	
+	-webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+	-moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+	box-shadow: 0 0 4px rgba(0,0,0, .75);
+}
+
+button.startBtn{
+	background: yellow;
+	font-size: 5em;
+	width: 500px;
+	height: 120px;
+	z-index: 12;
+}
+button.newBtn{
+	background: yellow;
+	font-size: 5em;
+	width: 500px;
+	height: 120px;
+	z-index: 12;
+	position: absolute;
+	top: 450px;
+	left: 350px;
+}
+button.drawBtn{
+	width: 400px;
+	height: 120px;
+	background: yellow;
+}
+button.skipBtn{
+	width: 400px;
+	height: 120px;
+	background: yellow;
+}
+button.card{
+	background: white;
+}
+button.handCardClickable{
+}
+button.handCardReadOnly{
+	width: 100px;
+	height: 100px;
+	font-size: 3em;
+}
+button.basketCard{
+	opacity: 0.9;
+}
+button.suit{
+	background: yellow;
+	font-size: 6em;
+}
+button.black{
+	color: black;
+}
+button.red{
+	color: red;
+}
+button.orange{
+	color: orange;
+}
+button.blue{
+	color: blue;
+}
+button.white{
+	background: white;
+}
+button.yellow{
+	background: yellow;
+}
+button.runningSuit{
+	background: white;
+}
+
+div.basket{
+	position: relative;
+	vertical-align: top;
+}
+div.cardPosDeck{
+	position: absolute;
+	top: 100px; 
+	left: 480px;
+}
+div.cardPosSkip{
+	position: absolute;
+	top: 100px; 
+	left: 480px;
+}
+div.cardPosC{
+	position: absolute;
+	top: 100px; 
+	left: 200px;
+}
+div.cardPosN{
+	position: absolute;
+	top: 40px; 
+	left: 200px;
+}
+div.cardPosS{
+	position: absolute;
+	top: 160px; 
+	left: 200px;
+}
+div.cardPosW{
+	position: absolute;
+	top: 100px; 
+	left: 140px;
+}
+div.cardPosE{
+	position: absolute;
+	top: 100px; 
+	left: 260px;
+}
+
+
+span.playerName{
+	font-size: 6em;
+	font-weight: normal;
+	text-decoration: underline;
+	border: 5px solid #ffffaa;
+	color: #ffffaa;
+	
+	
+	background-color: #2F2727; 
+	background-position: center center; 
+	background-repeat: no-repeat; 
+	
+	/* Safari 4-5, Chrome 1-9 */ 
+	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727)); 
+	/* Safari 5.1+, Chrome 10+ */
+	background: -webkit-radial-gradient(circle, #1a82f7, #2F2727); 
+	/* Firefox 3.6+ */ 
+	background: -moz-radial-gradient(circle, #1a82f7, #2F2727);
+}
+span.playerNameS{
+	
+	background-color: #ee11ee;
+	
+	/* Safari 4-5, Chrome 1-9 */ 
+	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#f2caf7), to(#ee11ee)); 
+	/* Safari 5.1+, Chrome 10+ */
+	background: -webkit-radial-gradient(circle, #f2caf7, #ee11ee); 
+	/* Firefox 3.6+ */ 
+	background: -moz-radial-gradient(circle, #f2caf7, #ee11ee);
+}
+span.playerNameN{
+}
+span.playerNameW{
+}
+span.playerNameE{
+}
+span.handPoints{
+	color: green;
+	font-size: 4em;
+	font-weight: bold;
+	
+	background-color: orange; 
+	background-position: center center; 
+	background-repeat: no-repeat; 
+	
+	/* Safari 4-5, Chrome 1-9 */ 
+	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ffccaa), to(orange)); 
+	/* Safari 5.1+, Chrome 10+ */
+	background: -webkit-radial-gradient(circle, #ffccaa, orange); 
+	/* Firefox 3.6+ */ 
+	background: -moz-radial-gradient(circle, #ffccaa, orange);
+	
+}
+div.winner{
+	color: red; 
+	font-size: 6em;
+	height: 100px;
+	width: 400px;
+	line-height: 100px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	vertical-align: middle;
+    text-align: center;
+			
+	background-color: yellow; 
+	background-position: center center; 
+	background-repeat: no-repeat; 
+	
+	/* Safari 4-5, Chrome 1-9 */ 
+	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ccffaa), to(yellow)); 
+	/* Safari 5.1+, Chrome 10+ */
+	background: -webkit-radial-gradient(circle, #ccffaa, yellow); 
+	/* Firefox 3.6+ */ 
+	background: -moz-radial-gradient(circle, #ccffaa, yellow);
+	
+	transform: rotate(-30deg);
+	-ms-transform: rotate(-30deg); /* IE 9 */
+	-webkit-transform: rotate(-30deg); /* Safari and Chrome */
+	
+	-moz-border-radius: 50px 0px 0px 0px;
+	-webkit-border-radius: 50px 0px 0px 0px;
+	border-radius: 50px 0px 0px 0px;
+}
+span.uno{
+	color: yellow;
+	font-size: 6em;
+	background-color: red; 
+	background-position: center center; 
+	background-repeat: no-repeat; 
+	
+	/* Safari 4-5, Chrome 1-9 */ 
+	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ffffee), to(red)); 
+	/* Safari 5.1+, Chrome 10+ */
+	background: -webkit-radial-gradient(circle, #ffeeee, red); 
+	/* Firefox 3.6+ */ 
+	background: -moz-radial-gradient(circle, #ffeeee, red);
+	
+	
+}
+
+span.humanHandCards{
+	background: white;
+}
+span.cpuHandCards{
+	
+}
+span.cpuHandCardsDebug{
+	background: white;
+	border: 2px;
+}
+
+
+/*
+The gameslow-animate-show prefix is the event name that you
+have provided within the ngAnimate attribute.
+*/
+.gameslow-animate-show-setup {
+-webkit-transition: 1s linear all; /* Safari/Chrome */
+-moz-transition: 1s linear all; /* Firefox */
+-ms-transition: 1s linear all; /* IE10 */
+-o-transition: 1s linear all; /* Opera */
+transition: 1s linear all; /* Future Browsers */
+ 
+/* The animation preparation code */
+opacity: 0.1;
+}
+/*
+Keep in mind that you want to combine both CSS
+classes together to avoid any CSS-specificity
+conflicts
+*/
+.gameslow-animate-show-setup.gameslow-animate-show-start {
+/* The animation code itself */
+opacity: 1;
+}
+
+
+/*
+The gameslow-animate-hide prefix is the event name that you
+have provided within the ngAnimate attribute.
+*/
+.gameslow-animate-hide-setup {
+-webkit-transition: 1s linear all; /* Safari/Chrome */
+-moz-transition: 1s linear all; /* Firefox */
+-ms-transition: 1s linear all; /* IE10 */
+-o-transition: 1s linear all; /* Opera */
+transition: 1s linear all; /* Future Browsers */
+ 
+/* The animation preparation code */
+opacity: 1;
+}
+/*
+Keep in mind that you want to combine both CSS
+classes together to avoid any CSS-specificity
+conflicts
+*/
+.gameslow-animate-hide-setup.gameslow-animate-hide-start {
+/* The animation code itself */
+opacity: 0.1;
+}
+
+
+.gamefast-animate-show-setup {
+-webkit-transition: 0.4s linear all; /* Safari/Chrome */
+-moz-transition: 0.4s linear all; /* Firefox */
+-ms-transition: 0.4s linear all; /* IE10 */
+-o-transition: 0.4s linear all; /* Opera */
+transition: 0.4s linear all; /* Future Browsers */
+ 
+opacity: 0.1;
+}
+.gamefast-animate-show-setup.gamefast-animate-show-start {
+/* The animation code itself */
+opacity: 1;
+}
+.gamefast-animate-hide-setup {
+-webkit-transition: 0.4s linear all; /* Safari/Chrome */
+-moz-transition: 0.4s linear all; /* Firefox */
+-ms-transition: 0.4s linear all; /* IE10 */
+-o-transition: 0.4s linear all; /* Opera */
+transition: 0.4s linear all; /* Future Browsers */
+ 
+opacity: 1;
+}
+.gamefast-animate-hide-setup.gamefast-animate-hide-start {
+opacity: 0.1;
+}
+
+.gamefast-animate-enter-setup {
+-webkit-transition: 0.4s linear all; /* Safari/Chrome */
+-moz-transition: 0.4s linear all; /* Firefox */
+-ms-transition: 0.4s linear all; /* IE10 */
+-o-transition: 0.4s linear all; /* Opera */
+transition: 0.4s linear all; /* Future Browsers */
+ 
+opacity: 0.1;
+}
+.gamefast-animate-enter-setup.gamefast-animate-enter-start {
+opacity: 1;
+}
+.gamefast-animate-move-setup {
+-webkit-transition: 0.4s linear all; /* Safari/Chrome */
+-moz-transition: 0.4s linear all; /* Firefox */
+-ms-transition: 0.4s linear all; /* IE10 */
+-o-transition: 0.4s linear all; /* Opera */
+transition: 0.4s linear all; /* Future Browsers */
+ 
+opacity: 0.3;
+}
+.gamefast-animate-move-setup.gamefast-animate-move-start {
+opacity: 0.7;
+}
+.gamefast-animate-leave-setup {
+-webkit-transition: 0.4s linear all; /* Safari/Chrome */
+-moz-transition: 0.4s linear all; /* Firefox */
+-ms-transition: 0.4s linear all; /* IE10 */
+-o-transition: 0.4s linear all; /* Opera */
+transition: 0.4s linear all; /* Future Browsers */
+ 
+opacity: 1;
+}
+.gamefast-animate-leave-setup.gamefast-animate-leave-start {
+opacity: 0.1;
+}
+
+
+.gamesuperfast-animate-show-setup {
+-webkit-transition: 0.2s linear all; /* Safari/Chrome */
+-moz-transition: 0.2s linear all; /* Firefox */
+-ms-transition: 0.2s linear all; /* IE10 */
+-o-transition: 0.2s linear all; /* Opera */
+transition: 0.2s linear all; /* Future Browsers */
+ 
+opacity: 0.1;
+}
+.gamesuperfast-animate-show-setup.gamesuperfast-animate-show-start {
+/* The animation code itself */
+opacity: 1;
+}
+.gamesuperfast-animate-hide-setup {
+-webkit-transition: 0.2s linear all; /* Safari/Chrome */
+-moz-transition: 0.2s linear all; /* Firefox */
+-ms-transition: 0.2s linear all; /* IE10 */
+-o-transition: 0.2s linear all; /* Opera */
+transition: 0.2s linear all; /* Future Browsers */
+ 
+opacity: 1;
+}
+.gamesuperfast-animate-hide-setup.gamesuperfast-animate-hide-start {
+opacity: 0.1;
+}
+
+
+.gameultrafast-animate-show-setup {
+-webkit-transition: 0.1s linear all; /* Safari/Chrome */
+-moz-transition: 0.1s linear all; /* Firefox */
+-ms-transition: 0.1s linear all; /* IE10 */
+-o-transition: 0.1s linear all; /* Opera */
+transition: 0.1s linear all; /* Future Browsers */
+ 
+opacity: 0.1;
+}
+.gameultrafast-animate-show-setup.gameultrafast-animate-show-start {
+/* The animation code itself */
+opacity: 1;
+}
+.gameultrafast-animate-hide-setup {
+-webkit-transition: 0.1s linear all; /* Safari/Chrome */
+-moz-transition: 0.1s linear all; /* Firefox */
+-ms-transition: 0.1s linear all; /* IE10 */
+-o-transition: 0.1s linear all; /* Opera */
+transition: 0.1s linear all; /* Future Browsers */
+ 
+opacity: 1;
+}
+.gameultrafast-animate-hide-setup.gameultrafast-animate-hide-start {
+opacity: 0.1;
+}

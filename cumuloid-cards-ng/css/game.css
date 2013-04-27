@@ -1,0 +1,55 @@
+/* game css stylesheet */
+
+body {
+  padding-top: 10px;
+}
+
+.thumb {
+  float: left;
+  margin: -1em 1em 1.5em 0em;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
+
+h1 {
+  border-bottom: 1px solid gray;
+}
+
+
+#wrapper{
+width: 99%; /*The content will fill 90% of the screen horizontally*/
+margin: 0 auto; /*positions the content in the centre of the page*/
+}
+nav{
+
+}
+header{
+
+}
+section.full-content{
+padding: 10px;
+}
+section.columns{
+overflow: auto; /*clears the floats used in the child elements*/
+width: 100%;
+padding: 10px;
+}
+article#columns-left{
+width: 15%;
+float: left;
+padding: 1px 1px 1px 1px;
+}
+article#columns-center{
+width: 70%;
+float: left;
+padding: 10px 15px 0 15px;
+}
+article#columns-right{
+width: 15%;
+float: right;
+padding: 1px 1px 1px 1px;
+}
+footer{
+margin: 10px;
+}

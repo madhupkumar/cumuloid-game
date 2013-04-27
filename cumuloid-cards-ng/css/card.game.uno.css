@@ -1,0 +1,34 @@
+
+.gamebtn-animate-hide-setup {
+-webkit-transition: 1s linear all; /* Safari/Chrome */
+-moz-transition: 1s linear all; /* Firefox */
+-ms-transition: 1s linear all; /* IE10 */
+-o-transition: 1s linear all; /* Opera */
+transition: 1s linear all; /* Future Browsers */
+ 
+opacity: 1;
+}
+.gamebtn-animate-hide-setup.gamebtn-animate-hide-start {
+opacity: 0.1;
+top: 100px;
+left: 100px;
+width: 800px;
+height: 800px;
+}
+
+.basketcardanimate-enter-setup {
+-webkit-transition: 1s linear all; /* Safari/Chrome */
+-moz-transition: 1s linear all; /* Firefox */
+-ms-transition: 1s linear all; /* IE10 */
+-o-transition: 1s linear all; /* Opera */
+transition: 1s linear all; /* Future Browsers */
+ 
+opacity: 0.1;
+width: 200px;
+height: 200px;
+}
+.basketcardanimate-enter-setup.basketcardanimate-enter-start {
+opacity: 0.8;
+width: 150px;
+height: 150px;
+}
