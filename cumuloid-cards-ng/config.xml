@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns       = "http://www.w3.org/ns/widgets"
         id          = "http://cumuloid.com/game/mao"
-        version     = "1.0"
+        version     = "1.01"
         height      = "1000"
         width       = "1000"
         viewmodes   = "fullscreen">
  
   <name short="Lose Them All">
-    Lose Them All - Mao - A Uno like card game
+    Lose Them All - Mao - card game similar to Crazy Eights, Uno and Mau
   </name>
 
-  <feature name="http://cumuloid.com/game/mao">
+  <feature name="http://www.cumuloid.com/game/mao">
     <param name="autofocus" value="true"/>
   </feature>
 
@@ -19,11 +19,11 @@
               readonly = "true" />
 
   <description>
-    Lose Them All - Mao - A Uno like card game
+    Lose Them All - Mao - card game similar to Crazy Eights, Uno and Mau
   </description>
 
-  <author href  = "http://cumuloid.com/"
-          email = "madhupkumar@gmail.com">Cumuloid Software</author>
+  <author href  = "http://www.cumuloid.com/"
+          email = "ceo@cumuloid.com">Cumuloid Software</author>
 
   <icon src="icon.png"/>
   <content src="index.html"/>
