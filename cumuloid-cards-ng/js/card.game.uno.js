@@ -15,7 +15,7 @@ function GameController($scope, $timeout) {
 			hasBidding: false, 
 			hasPoints: true, 
 			cardPointMap: { TWO: 2, THREE: 3, FOUR: 4, FIVE: 5, SIX: 6, SEVEN: 7, EIGHT: 8, NINE: 9, TEN: 10, JACK: 5, KING: 5, QUEEN: 5, ACE: 1},
-			specialCardMap: { suitSwitcher: 'JACK',   attacker: 'SEVEN', blocker: 'ACE', bonusWinner: 'JACK'},
+			specialCardMap: { suitSwitcher: 'JACK',   attacker: 'EIGHT', blocker: 'ACE', bonusWinner: 'JACK'},
 			initialNumberOfCardsPerPlayer: 7
 		};
 	
