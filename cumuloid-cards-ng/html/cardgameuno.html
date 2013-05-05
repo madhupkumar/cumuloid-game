@@ -62,11 +62,14 @@
 										title="{{basketCard.fullString}}">
 									</button>
 							</div>
-							<div class="cardPosC" ng-show="gameRound.switchedSuit != null" ng-animate=" 'gamefast-animate' ">
+							<div class="cardPosC" ng-show="gameRound.switchedSuit != null" ng-animate="{show: 'gamefast-animate'}">
 								<button class="suit {{gameRound.switchedSuit.color}} runningSuit" ng-bind-html-unsafe="gameRound.switchedSuit"></button>
 							</div>
-							<div class="cardPosDeck" ng-show="gameRound.awaitingDraw"  ng-animate="{ show: 'gamefast-animate-show'} ">
+							<div class="cardPosDeck" ng-show="gameRound.awaitingDraw"  ng-animate="{ show: 'gameslow-animate-show'} ">
 								<button class="eventDraw" ng-bind-html-unsafe="gameViewProperties.arrowTowardsPrevPlayer[gameRound.playerIndex]"></button>
+							</div>
+							<div class="cardPosDeck" ng-show="!gameRound.awaitingDraw && !gameRound.awaitingSkip" ng-animate="{ show: 'gameslow-animate-show'} ">
+								<button class="deckInactive" ng-bind-html-unsafe="':&nbsp;:'"></button>
 							</div>
 							<div class="cardPosSkip" ng-show="gameRound.awaitingSkip"  ng-animate="{ show: 'gamesuperfast-animate-show', hide: 'gamefast-animate-hide'} ">
 								<button class="eventSkip" ng-bind-html-unsafe="'&Theta;'"></button>
@@ -94,25 +97,34 @@
 					<td align="center">
 						
 						<button autofocus class="startBtn" ng-click="handleGameEvent({name: 'deal'})" ng-show="cardGame.gameStatus == 'started'" 
-							ng-animate="{hide: 'gamebtn-animate-hide'}">Hi Droids!  &rArr;</button>
+							ng-animate="{hide: 'gamebtn-animate-hide'}">Deal Cards  &rArr;</button>
 						<button class="newBtn" ng-click="newGame()" ng-show="cardGame.gameStatus == 'gameWon'" 
 							ng-animate="{show: 'gameslow-animate-show', hide: 'gameultrafast-animate-hide'}">Next Game &rArr;</button>
 						
 						<button class="drawBtn" 
 							ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && !gameRound.canSwitchSuit && !gameRound.blockerCardThrown && gameRound.hasSinglePossibleAction && !gameRound.attackerCardThrown"
-							ng-click="raiseGameEvent({name: 'draw'})" ng-animate=" 'gamefast-animate' ">Must Draw &darr;</button>
+							ng-click="raiseGameEvent({name: 'draw'})"
+							ng-animate="{show:  'gamefast-animate-show'}">Must Draw &darr;</button>
 						<button class="drawBtn" 
 							ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && !gameRound.canSwitchSuit && !gameRound.blockerCardThrown && !gameRound.hasSinglePossibleAction && !gameRound.attackerCardThrown"
-							ng-click="raiseGameEvent({name: 'draw'})" ng-animate=" 'gameslow-animate' ">Draw  &darr;</button>
+							ng-click="raiseGameEvent({name: 'draw'})" 
+							ng-animate="{show:  'gameslow-animate-show'}">Draw  &darr;</button>
 						<button class="drawBtn" 
 							ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && !gameRound.canSwitchSuit && !gameRound.blockerCardThrown && gameRound.hasSinglePossibleAction && gameRound.attackerCardThrown"
-							ng-click="raiseGameEvent({name: 'draw'})" ng-animate=" 'gamefast-animate' ">Must Draw {{gameRound.nCardsToDraw}} &dArr;</button>
+							ng-click="raiseGameEvent({name: 'draw'})" 
+							ng-animate="{show:  'gamefast-animate-show'}">Must Draw {{gameRound.nCardsToDraw}} &dArr;</button>
 						<button class="drawBtn" 
 							ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && !gameRound.canSwitchSuit && !gameRound.blockerCardThrown && !gameRound.hasSinglePossibleAction && gameRound.attackerCardThrown"
-							ng-click="raiseGameEvent({name: 'draw'})" ng-animate=" 'gamefast-animate' ">Draw {{gameRound.nCardsToDraw}} &dArr;</button>
+							ng-click="raiseGameEvent({name: 'draw'})" 
+							ng-animate="{show:  'gamefast-animate-show'}">Draw {{gameRound.nCardsToDraw}} &dArr;</button>
 						
-						<button class="skipBtn" ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && gameRound.blockerCardThrown && gameRound.hasSinglePossibleAction" ng-click="raiseGameEvent({name: 'skip'})" ng-animate=" 'gamefast-animate' ">Must Skip &Theta;</button>
-						<button class="skipBtn" ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && gameRound.blockerCardThrown && !gameRound.hasSinglePossibleAction" ng-click="raiseGameEvent({name: 'skip'})" ng-animate=" 'gamefast-animate' ">Skip &Theta;</button>
+						<button class="skipBtn" 
+							ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && gameRound.blockerCardThrown && gameRound.hasSinglePossibleAction" 
+							ng-click="raiseGameEvent({name: 'skip'})" 
+							ng-animate=" 'gamefast-animate' ">Must Skip &Theta;</button>
+						<button class="skipBtn" 
+							ng-show="cardGame.gameStatus == 'gameOn' && gameRound.awaitingInput && gameRound.blockerCardThrown && !gameRound.hasSinglePossibleAction" ng-click="raiseGameEvent({name: 'skip'})" 
+							ng-animate="{show:  'gamefast-animate-show'}">Skip &Theta;</button>
 						
 						<span ng-show="gameRound.canSwitchSuit">
 							<button ng-repeat="cardSuit in cardGame.cardDeckDefn.CARD_SUITS" 
@@ -129,7 +141,7 @@
 		
 		<div class="row-fluid" style="width: 100%; height: 350px; text-align: center">
 			 <div id="handCardsHolder" style="width: 100%; height: 250px; text-align: center">
-				<button ng-repeat="handCard in gamePlayers[0].handCards"  ng-animate=" 'gamefast-animate' "
+				<button ng-repeat="handCard in gamePlayers[0].handCards"  ng-animate=" 'gameslow-animate' "
 					class="card {{handCard.cardSuit.color}} {{handCard.bgcolor}} handCardClickable" 
 					title="{{handCard.fullString}}"
 					ng-disabled="handCard.bgcolor == 'white'"

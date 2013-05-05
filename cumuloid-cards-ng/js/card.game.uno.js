@@ -1,4 +1,4 @@
-/* **  TODO Animation. TODO: Package and sell: site-host, Phonegap for MobileApp  ** */
+//	<!-- Add Exit button if Mobile native App  -->
 
 
 var cumuloidCardAppModule = angular.module('cumuloidCard',[]);
